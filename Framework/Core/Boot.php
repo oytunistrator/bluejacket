@@ -22,8 +22,8 @@ class Boot
     public $cookie;
     public $session;
 
-  public function __construct($config){
-  	$this->config($config);
+  public function __construct($config=null){
+	if($config != null) $this->config($config);
   	$this->_controllerPath = APPFOLDER."/controller/";
   	$this->_pageNotFound = APPFOLDER."/public/404.html";
   }
@@ -31,7 +31,7 @@ class Boot
 
   public function init(){
     /*loader*/
-
+    
     $this->loader("Framework/Core/");
     $this->loader(APPFOLDER."/model/");
     $this->loader(APPFOLDER."/controller/");
@@ -86,11 +86,13 @@ class Boot
 	}
 
   public function config($ff){
-    if(is_file($ff)){
-      include $ff;
-    }else{
-      $this->loader($ff);
-    }
+	  if(isset($ff)){
+		  if(is_file($ff)){
+	      include $ff;
+	    }else{
+	      $this->loader($ff);
+	    }
+	  }
   }
 
 	public function __checkClassFunction($class,$function){
@@ -307,14 +309,16 @@ class Boot
   }
 
   public static function loader($folder){
-    $fl = scandir($folder);
-    foreach($fl as $f){
-      if($f != '..' && $f != '.' && $f != 'index.php' && $f != "Boot.php"){
-        if(is_file($folder.$f)){
-          include $folder.$f;
-        }
-      }
-    }
+	if(isset($folder)){
+		$fl = scandir($folder);
+	    foreach($fl as $f){
+	      if($f != '..' && $f != '.' && $f != 'index.php' && $f != "Boot.php"){
+	        if(is_file($folder.$f)){
+	          include $folder.$f;
+	        }
+	      }
+	    }
+	}
   }
 }
 ?>
