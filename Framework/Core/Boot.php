@@ -6,9 +6,9 @@ class Boot
   	public $_url;
   	private $_db;
   	public $_controller;
-  	public $_controllerPath='Application/controller/';
+  	public $_controllerPath;
   	public $_seoExtention=false;
-  	public $_pageNotFound="Application/public/404.html";
+  	public $_pageNotFound;
   	public $_route;
   	public $_root;
   	public $_redirect;
@@ -24,12 +24,14 @@ class Boot
 
   public function __construct($config){
   	$this->config($config);
+  	$this->_controllerPath = APPFOLDER."/controller/";
+  	$this->_pageNotFound = APPFOLDER."/public/404.html";
   }
 
 
   public function init(){
     /*loader*/
-    
+
     $this->loader("Framework/Core/");
     $this->loader(APPFOLDER."/model/");
     $this->loader(APPFOLDER."/controller/");
