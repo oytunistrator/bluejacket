@@ -1,0 +1,12 @@
+<?php
+define('APPNAME','BlueJacket');
+define('APPFOLDER','Application');
+define('TEMPLATE_FOLDER',APPFOLDER.'/template/');
+define('DEFAULT_TEMPLATE_FOLDER',APPFOLDER.'/template/default/');
+define('DEFAULT_CONTROLLER','home');
+define('ROUTE_MANAGEMENT',true);
+define('PUBLIC_DIR',APPFOLDER.'/public/');
+define('APP_DEBUGING',false);
+define('CACHE_FOLDER',APPFOLDER.'/cache/');
+define('CACHE_TIMER',120);
+?>
