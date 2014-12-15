@@ -9,7 +9,11 @@ class Upload
 	public function upload($fileInput=array()){
 		if(is_array($this->file['allowedTypes'])) $allowedTypes = $this->file['allowedTypes'];
 		if(is_numeric($this->file['maxSize'])) $allowedMaxSize = $this->file['maxSize'];
-		if(isset($this->file['uploadFolder'])) $uploadFolder = $this->file['uploadFolder'];
+		if(isset($this->file['uploadFolder'])){
+			$uploadFolder = $this->file['uploadFolder'];
+			
+			if(BASEDIR) $baseFolder = BASEDIR.'/';
+		}
 
 		if($fileInput == array()) return false;
 
@@ -22,8 +26,12 @@ class Upload
 				$fileExt = end($fileExt);
 
 				$newFileName = $this->fixName($fileName)."_".rand(0,9999999).".".$fileExt;
-				$movePath = $uploadFolder.$newFileName;
-
+				
+				$normalPath = $uploadFolder.$newFileName;
+				
+				if(BASEDIR) $movePath = $baseFolder.$uploadFolder.$newFileName;
+				else $movePath = $uploadFolder.$newFileName;
+				
 
 				move_uploaded_file($fileInput["tmp_name"],$movePath);
 				//print_r($fileInput);
@@ -32,7 +40,7 @@ class Upload
 					'name' => $newFileName,
 					'folder' => $uploadFolder,
 					'extention' => $fileExt,
-					'path' => $movePath
+					'path' => $normalPath
 					);
 			}
 		}
