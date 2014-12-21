@@ -10,7 +10,7 @@ class Home extends Controller
 		$this->view->partial("footer","Application/template/default/footer.html");
 		$this->view->set("temp_dir","Application/template/default");
 
-		$this->view->load("temp");
+		$this->view->load("homepage");
 	}
 }
 ?>

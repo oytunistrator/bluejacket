@@ -10,7 +10,7 @@ class Route
 		)
 	);
 	public $redirect = array(
-		array("about","http://bluejacket.io/")
+		array("wiki","https://github.com/oytunistrator/bluejacket/wiki")
 	);
 }
 ?>

@@ -9,7 +9,7 @@ define('PUBLIC_DIR',APPFOLDER.'/public/');
 define('APP_DEBUGING',false);
 define('SSL_ACTIVE',false);
 
-define('CACHE_EXTENTION',true);
+define('CACHE_EXTENTION',false);
 define('CACHE_FOLDER',APPFOLDER.'/cache/');
 define('CACHE_TIMER',120);
 
