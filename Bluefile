@@ -1,4 +1,11 @@
 <?php
-package "BlueJacket"
-name ""
+$package = array(
+	"name" => "BlueJacket Framework",
+	"name" => "bluejacket"
+	"src" => "https://github.com/oytunistrator/bluejacket.git",
+	"depends" => array(
+		"php" => "5.x",
+		"mysql" => "5.x"
+	) 
+);
 ?>
