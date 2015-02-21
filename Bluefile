@@ -1,7 +1,7 @@
 <?php
 $package = array(
-	"name" => "BlueJacket Framework",
-	"name" => "bluejacket"
+	"name" => "bluejacket",
+	"description" => "BlueJacket Framework",
 	"src" => "https://github.com/oytunistrator/bluejacket.git",
 	"depends" => array(
 		"php" => "5.x",
