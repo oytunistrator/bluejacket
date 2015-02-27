@@ -53,15 +53,15 @@ class Bower
 	}
 
 
-  public function css($obje){
-    if(isset($obje) && $obje!=null){
-      return '<link rel="stylesheet" type="text/css" href="/'.$obje.'"/>';
+  public function css($object){
+    if(isset($object) && $object!=null){
+      return '<link rel="stylesheet" type="text/css" href="/'.$object.'"/>';
     }
   }
   
-  public function js($obje){
-		if(isset($obje) && $obje!=null){
-			return '<script type="text/javascript" src="/'.$obje.'"></script>';
+  public function js($object){
+		if(isset($object) && $object!=null){
+			return '<script type="text/javascript" src="/'.$object.'"></script>';
 		}
 	}		
 }

@@ -1,7 +1,7 @@
 <?php
 class View
 {
-	private $_time=0;
+	private $_time = 0;
 	private $_templateFile;
 	private $_vars;
 	private $_debug;

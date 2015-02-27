@@ -7,11 +7,12 @@ class Feed
    $count         = func_num_args();
    $parameters    = func_get_args();
 
- if( $count == 3 ){
-   $this->setFeedTitle( $parameters[0] );
-   $this->setFeedLink( $parameters[1] );
-   $this->setFeedDesc( $parameters[2] );
- }
+ if( $count == 3 )
+     {
+       $this->setFeedTitle( $parameters[0] );
+       $this->setFeedLink( $parameters[1] );
+       $this->setFeedDesc( $parameters[2] );
+     }
 
  else if ( $count == 1 AND is_array( $parameters[0] ) )
  foreach( $parameters[0] as $key => $value )
@@ -57,35 +58,40 @@ class Feed
  /*
  * Sets channel title
  */
- public function setFeedTitle( $title ){
+ public function setFeedTitle( $title )
+ {
    $this->setChannelElm( 'title', $title );
  }
 
  /*
  * Sets channel link
  */
- public function setFeedLink( $link ){
+ public function setFeedLink( $link )
+ {
    $this->setChannelElm( 'link', $link );
  }
 
  /*
  * Sets channel description
  */
- public function setFeedDesc( $desc ){
+ public function setFeedDesc( $desc )
+ {
    $this->setChannelElm( 'description', $desc);
  }
 
  /*
  * Sets channel language
  */
- public function setFeedLang( $lang='en_en' ){
+ public function setFeedLang( $lang='en_en' )
+ {
    $this->setChannelElm( 'language', $lang );
  }
 
  /*
  * Sets channel image
  */
- public function setFeedImage( $title, $imag, $link, $width = '', $height = '' ){
+ public function setFeedImage( $title, $imag, $link, $width = '', $height = '' )
+ {
    $this->setChannelElm('image', array(
    'title' => $title,
    'link'=> $link,
@@ -98,7 +104,8 @@ class Feed
  /*
  * Sets channel Feed Generator Script
  */
- private function setFeedGenerator( $desc = 'RSS Feed Generator - http://www.example.com/rss' ){
+ private function setFeedGenerator( $desc = 'RSS Feed Generator - http://www.example.com/rss' )
+ {
    $this->setChannelElm('generator', $desc );
  }
 
@@ -109,7 +116,8 @@ class Feed
  /*
  * Generate and print the channel's elements
  */
- private function genChannel( ){
+ private function genChannel( )
+ {
    echo '<channel>' . PHP_EOL;
    echo $this->meta_array( $this->channels );
  }
@@ -117,7 +125,8 @@ class Feed
  /*
  * Add each Item object to an array to be treated after
  */
- public function addItem( $item ){
+ public function addItem( $item )
+ {
    if( is_array( $item ) )
      foreach( $item as $itm )
        $this->addItem( $itm );
@@ -130,14 +139,16 @@ class Feed
    $item->parseItem( );
  }
 
- private function genBottom( ){
+ private function genBottom( )
+ {
    echo '</channel>' . PHP_EOL . '</rss>';
  }
 
  /*
  * Generates the Feed
  */
- public function genFeed( ){
+ public function genFeed( )
+ {
    header( "Content-type: text/xml" );
 
    $this->genHead( );
