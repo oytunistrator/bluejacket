@@ -21,8 +21,7 @@ class SMS extends Text
         $stopdate=str_replace('.', '',$stopdate );
         $stopdate=str_replace(':', '',$stopdate);
         $stopdate = str_replace(' ', '', $stopdate);
-        $convert = new Text();
-        $message = $convert->convert($message, 'tr', 'en');
+        $message = $this->convert($message, 'tr', 'en');
 
 
         $service_url="http://api.netgsm.com.tr/bulkhttppost.asp?usercode=$username&password=$password&gsmno=$mobileno&message=$message&msgheader=$message_header&startdate=$startdate&stopdate=$stopdate";
